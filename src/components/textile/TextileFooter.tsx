@@ -1,4 +1,6 @@
 import React from "react";
+import { Linkedin, Twitter, Mail, MapPin } from "lucide-react";
+
 
 interface FooterProps {
   data?: {
@@ -6,39 +8,80 @@ interface FooterProps {
     blurb?: string;
     links?: { label: string; href: string }[];
     contactEmail?: string;
-    note?: string;
+    description?: string;
+    email?: string;
+    address?: string;
   };
 }
 
 const TextileFooter: React.FC<FooterProps> = ({ data }) => {
-  const links = data?.links || [
-    { label: "Home", href: "/" },
-    { label: "Spasticity", href: "/spasticity" },
-    { label: "Textile", href: "/textile" },
-  ];
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 mt-20" id="contact">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-        <div>
-          <h3 className="text-xl font-bold text-white mb-3">{data?.title || "Ataryo Textiles"}</h3>
-          <p>{data?.blurb || "Innovating the world of smart and sustainable fabrics."}</p>
+    <footer className="bg-primary-dark text-white pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Brand Info */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4">Ataryo Textiles</h3>
+            <p className="text-gray-300 leading-relaxed mb-6">
+              {data?.description || "Revolutionizing the future of smart textiles with sustainable innovation."}
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors">
+                <Linkedin size={20} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors">
+                <Twitter size={20} />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
+            <ul className="space-y-3">
+              <li><a href="#products" className="text-gray-300 hover:text-accent transition-colors">Products</a></li>
+              <li><a href="#sustainability" className="text-gray-300 hover:text-accent transition-colors">Sustainability</a></li>
+              <li><a href="#research" className="text-gray-300 hover:text-accent transition-colors">Research</a></li>
+              <li><a href="/" className="text-gray-300 hover:text-accent transition-colors">Home</a></li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Contact Us</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <Mail size={20} className="text-accent mt-1" />
+                <span className="text-gray-300">{data?.email || "contact@ataryo.com"}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin size={20} className="text-accent mt-1" />
+                <span className="text-gray-300">{data?.address || "Innovation Hub, Tech City"}</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Stay Updated</h3>
+            <p className="text-gray-300 mb-4">Subscribe to our newsletter for the latest innovations.</p>
+            <div className="flex gap-2">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="flex-1 px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-accent"
+              />
+              <button className="px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors">
+                Subscribe
+              </button>
+            </div>
+          </div>
         </div>
-        <div>
-          <h4 className="text-lg font-semibold text-white mb-3">Quick Links</h4>
-          <ul className="space-y-2">
-            {links.map((l, i) => (
-              <li key={i}><a href={l.href} className="hover:text-white">{l.label}</a></li>
-            ))}
-          </ul>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+          © {new Date().getFullYear()} Ataryo. All rights reserved.
         </div>
-        <div>
-          <h4 className="text-lg font-semibold text-white mb-3">Connect With Us</h4>
-          <p>Email: {data?.contactEmail || "contact@ataryo.in"}</p>
-          <p>Follow us on social media</p>
-        </div>
-      </div>
-      <div className="text-center text-sm text-gray-500 mt-8 border-t border-gray-700 pt-4">
-        {data?.note || "© 2025 Ataryo. All rights reserved."}
       </div>
     </footer>
   );

@@ -9,6 +9,8 @@ import HomeTeam from "../components/home/HomeTeam";
 import HomePartnership from "../components/home/HomePartnership";
 import HomeInvestment from "../components/home/HomeInvestment";
 import WhyWeExist from "../components/home/WhyWeExist";
+import HomeStats from "../components/home/HomeStats";
+import { motion } from "framer-motion";
 
 const HomePage: React.FC = () => {
   const { content, fetchContent, loading, error } = useContentStore();
@@ -30,8 +32,35 @@ const HomePage: React.FC = () => {
 
   if (loading)
     return (
-      <div className="flex items-center justify-center min-h-screen bg-white">
-        <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-primary-dark via-slate-900 to-primary-dark">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+          className="w-20 h-20 border-4 border-accent border-t-transparent rounded-full"
+        />
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mt-6 text-white text-lg font-medium"
+        >
+          Loading Experience...
+        </motion.p>
+        <motion.div
+          className="mt-4 flex gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          {[0, 1, 2].map((i) => (
+            <motion.div
+              key={i}
+              className="w-2 h-2 bg-accent rounded-full"
+              animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
+            />
+          ))}
+        </motion.div>
       </div>
     );
 
@@ -43,12 +72,23 @@ const HomePage: React.FC = () => {
     );
 
   return (
-    <div className="bg-white text-gray-900 overflow-x-hidden">
+    <motion.div
+      className="bg-white text-gray-900 overflow-x-hidden relative"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Floating Decorative Elements */}
+      <div className="fixed top-20 right-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: "4s" }} />
+      <div className="fixed bottom-20 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: "6s" }} />
+      
       <HomeNavbar data={home.navbar} />
       
       <HomeHero data={home.hero} />
       
       <HomeAbout data={home.about} />
+      
+      <HomeStats />
       
       <HomeCoreValues data={home.coreValues} />
       
@@ -61,8 +101,11 @@ const HomePage: React.FC = () => {
       <HomeTeam data={home.team} />
       
       <HomeFooter data={home.footer} />
-    </div>
+    </motion.div>
   );
 };
 
 export default HomePage;
+
+
+

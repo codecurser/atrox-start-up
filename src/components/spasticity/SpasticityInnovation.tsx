@@ -1,6 +1,6 @@
-// src/components/spasticity/SpasticityInnovation.tsx
 import React from "react";
 import { motion } from "framer-motion";
+import { Lightbulb, Activity, Users } from "lucide-react";
 
 interface InnovationProps {
   data?: {
@@ -28,35 +28,47 @@ const SpasticityInnovation: React.FC<InnovationProps> = ({ data }) => {
     },
   ];
 
-  return (
-    <div>
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="text-3xl font-bold text-gray-800 text-center mb-12"
-      >
-        {data?.title || "Our Innovations"}
-      </motion.h2>
+  const icons = [Lightbulb, Activity, Users];
 
-      <div className="grid md:grid-cols-3 gap-10">
-        {items.map((item, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.05 }}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: index * 0.1 }}
-            className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
-          >
-            <h3 className="text-xl font-semibold text-blue-700 mb-3">
-              {item.name}
-            </h3>
-            <p className="text-gray-600">{item.description}</p>
-          </motion.div>
-        ))}
+  return (
+    <section className="py-24 bg-slate-50" id="innovation">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            {data?.title || "Our Innovations"}
+          </h2>
+          <div className="w-20 h-1.5 bg-accent mx-auto rounded-full" />
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {items.map((item, index) => {
+            const Icon = icons[index] || Lightbulb;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.7 }}
+                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:-translate-y-2"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform">
+                  <Icon size={32} />
+                </div>
+                <h3 className="text-xl font-bold text-primary mb-3">
+                  {item.name}
+                </h3>
+                <p className="text-secondary leading-relaxed">{item.description}</p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

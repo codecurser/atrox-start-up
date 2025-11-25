@@ -35,17 +35,32 @@ const TextileResearch: React.FC<ResearchProps> = ({ data }) => {
           {data?.summary ||
             "Our R&D focuses on the intersection of biotechnology, artificial intelligence, and sustainable design — developing fabrics that monitor vitals, react to environmental stimuli, and optimize human performance."}
         </motion.p>
-        <motion.img
+        <motion.div
           variants={fadeVariant}
           initial="hidden"
           whileInView="show"
-          src={data?.image || "/images/research-lab.jpg"}
-          alt="Research Lab"
-          className="rounded-2xl shadow-xl w-full md:w-3/4 mx-auto"
-        />
+          className="rounded-2xl shadow-xl w-full md:w-3/4 mx-auto overflow-hidden"
+        >
+          {data?.image ? (
+            <img
+              src={data.image}
+              alt="Research Lab"
+              className="w-full h-auto object-cover"
+            />
+          ) : (
+            <div className="w-full h-96 bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-6xl mb-4">🔬</div>
+                <p className="text-xl font-semibold text-primary">Research & Development</p>
+                <p className="text-gray-600 mt-2">Innovation in Progress</p>
+              </div>
+            </div>
+          )}
+        </motion.div>
       </div>
     </section>
   );
 };
 
 export default TextileResearch;
+

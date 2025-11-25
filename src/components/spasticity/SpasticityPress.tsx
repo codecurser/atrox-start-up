@@ -1,67 +1,75 @@
-// src/components/spasticity/SpasticityPress.tsx
 import React from "react";
 import { motion } from "framer-motion";
+import { Newspaper, ExternalLink } from "lucide-react";
 
 interface PressProps {
   data?: {
     title?: string;
-    articles?: { headline: string; link: string; image?: string }[];
+    articles?: { title: string; excerpt: string; link?: string; date?: string }[];
   };
 }
 
 const SpasticityPress: React.FC<PressProps> = ({ data }) => {
   const articles = data?.articles || [
     {
-      headline: "Ataryo’s Wearable Therapy Gains Global Recognition",
-      link: "#",
+      title: "Breakthrough in Spasticity Treatment",
+      excerpt: "New wearable technology shows promising results in clinical trials.",
+      date: "2024-03-15",
     },
     {
-      headline: "Innovation Spotlight: Smart Fabrics for Spasticity Care",
-      link: "#",
-    },
-    {
-      headline: "Clinical Trials Show Promising Results",
-      link: "#",
+      title: "AI-Powered Rehabilitation Tools",
+      excerpt: "Machine learning enhances personalized therapy outcomes.",
+      date: "2024-02-20",
     },
   ];
 
   return (
-    <section className="py-20 bg-gray-100">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl font-bold text-gray-800 text-center mb-12"
+          className="text-center mb-16"
         >
-          {data?.title || "Press & Media"}
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            {data?.title || "Press & Publications"}
+          </h2>
+          <div className="w-20 h-1.5 bg-accent mx-auto rounded-full" />
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-10">
-          {articles.map((article, index) => (
-            <motion.a
-              key={index}
-              href={article.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 40 }}
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {articles.map((article, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+              transition={{ delay: i * 0.1, duration: 0.7 }}
+              className="group bg-white p-8 rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:-translate-y-2"
             >
-              <img
-                src={article.image || "/images/press.jpg"}
-                alt={article.headline}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  {article.headline}
-                </h3>
-                <p className="text-blue-600 font-medium">Read more →</p>
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent flex-shrink-0">
+                  <Newspaper size={24} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+                    {article.title}
+                  </h3>
+                  {article.date && (
+                    <p className="text-sm text-gray-500 mb-2">{article.date}</p>
+                  )}
+                </div>
               </div>
-            </motion.a>
+              <p className="text-secondary leading-relaxed mb-4">{article.excerpt}</p>
+              {article.link && (
+                <a
+                  href={article.link}
+                  className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all"
+                >
+                  Read More
+                  <ExternalLink size={16} />
+                </a>
+              )}
+            </motion.div>
           ))}
         </div>
       </div>
