@@ -9,7 +9,6 @@ import HomeTeam from "../components/home/HomeTeam";
 import HomePartnership from "../components/home/HomePartnership";
 import HomeInvestment from "../components/home/HomeInvestment";
 import WhyWeExist from "../components/home/WhyWeExist";
-import HomeStats from "../components/home/HomeStats";
 import { motion } from "framer-motion";
 
 const HomePage: React.FC = () => {
@@ -87,8 +86,6 @@ const HomePage: React.FC = () => {
       <HomeHero data={home.hero} />
       
       <HomeAbout data={home.about} />
-      
-      <HomeStats />
       
       <HomeCoreValues data={home.coreValues} />
       

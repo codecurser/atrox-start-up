@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingUp } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, TrendingUp, CheckCircle } from "lucide-react";
 
 interface InvestmentProps {
   data?: {
     title?: string;
     description?: string;
+    focus?: string[];
     ctaText?: string;
     ctaLink?: string;
     image?: string;
@@ -19,8 +19,7 @@ const HomeInvestment: React.FC<InvestmentProps> = ({ data }) => {
   const {
     title = "Investment Opportunities",
     description = "",
-    ctaText = "",
-    ctaLink = "",
+    focus = [],
     image = "",
   } = data;
 
@@ -46,19 +45,32 @@ const HomeInvestment: React.FC<InvestmentProps> = ({ data }) => {
                 {title}
               </h2>
               
-              <p className="text-lg text-gray-300 mb-10 leading-relaxed">
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                 {description}
               </p>
 
-              {ctaLink && (
-                <Link
-                  to={ctaLink}
-                  className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg hover:shadow-accent/50 group"
-                >
-                  {ctaText} 
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
+              {/* Investment Focus Areas */}
+              {focus.length > 0 && (
+                <div className="space-y-3 mb-10">
+                  {focus.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="flex items-start gap-3 text-gray-200"
+                    >
+                      <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-base">{item}</span>
+                    </motion.div>
+                  ))}
+                </div>
               )}
+
+              <button className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg hover:shadow-accent/50 group">
+                Connect With Us
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </button>
             </motion.div>
 
             <motion.div
@@ -86,3 +98,4 @@ const HomeInvestment: React.FC<InvestmentProps> = ({ data }) => {
 };
 
 export default HomeInvestment;
+

@@ -1,11 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Handshake } from "lucide-react";
+import { Handshake, Users } from "lucide-react";
 
 interface PartnershipProps {
   data?: {
     title?: string;
     description?: string;
+    partners?: string[];
     image?: string;
   };
 }
@@ -14,8 +15,9 @@ const HomePartnership: React.FC<PartnershipProps> = ({ data }) => {
   if (!data) return null;
 
   const {
-    title = "Why partner with us",
+    title = "Partnerships & Collaborators",
     description = "",
+    partners = [],
     image = "/assets/partner-default.jpg",
   } = data;
 
@@ -41,6 +43,24 @@ const HomePartnership: React.FC<PartnershipProps> = ({ data }) => {
             <p className="text-lg text-secondary leading-relaxed mb-8">
               {description}
             </p>
+
+            {/* Partners List */}
+            {partners.length > 0 && (
+              <div className="space-y-3 mb-8">
+                {partners.map((partner, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center gap-3 text-secondary"
+                  >
+                    <Users size={20} className="text-accent flex-shrink-0" />
+                    <span className="text-base">{partner}</span>
+                  </motion.div>
+                ))}
+              </div>
+            )}
 
             <button className="px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-full font-semibold transition-all duration-300">
               Become a Partner
@@ -71,3 +91,4 @@ const HomePartnership: React.FC<PartnershipProps> = ({ data }) => {
 };
 
 export default HomePartnership;
+

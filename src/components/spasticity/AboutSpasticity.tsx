@@ -5,6 +5,8 @@ import { Target, Eye } from "lucide-react";
 interface AboutProps {
   data?: {
     title?: string;
+    vision?: string;
+    mission?: string;
     description?: string;
     image?: string;
   };
@@ -22,33 +24,38 @@ const AboutSpasticity: React.FC<AboutProps> = ({ data }) => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
-              {data?.title || "About Our Spasticity Mission"}
+              {data?.title || "About NeuroAssistive™"}
             </h2>
-            <p className="text-lg text-secondary leading-relaxed mb-8">
-              {data?.description ||
-                "We aim to revolutio nize spasticity management through advanced textiles, assistive technologies, and patient-centric solutions that improve quality of life and mobility."}
-            </p>
+            {data?.description && (
+              <p className="text-lg text-secondary leading-relaxed mb-8">
+                {data.description}
+              </p>
+            )}
 
             {/* Key Points */}
             <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
-                  <Target size={24} />
+              {data?.vision && (
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+                    <Eye size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-primary mb-2">Our Vision</h3>
+                    <p className="text-secondary">{data.vision}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-primary mb-2">Our Mission</h3>
-                  <p className="text-secondary">Empowering lives through innovative spasticity treatment solutions</p>
+              )}
+              {data?.mission && (
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+                    <Target size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-primary mb-2">Our Mission</h3>
+                    <p className="text-secondary">{data.mission}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
-                  <Eye size={24} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-primary mb-2">Our Vision</h3>
-                  <p className="text-secondary">A world where spasticity no longer limits movement and independence</p>
-                </div>
-              </div>
+              )}
             </div>
           </motion.div>
 

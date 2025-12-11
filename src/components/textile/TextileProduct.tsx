@@ -9,7 +9,10 @@ const fadeUp = {
 interface ProductsProps {
   data?: {
     title?: string;
+    description?: string;
+    features?: string[];
     items?: { title: string; desc: string; image: string }[];
+    applications?: string[];
   };
 }
 
@@ -42,10 +45,36 @@ const TextileProduct: React.FC<ProductsProps> = ({ data }) => {
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
-          className="text-4xl font-bold text-gray-800 mb-12 text-center"
+          className="text-4xl font-bold text-gray-800 mb-6 text-center"
         >
-          {data?.title || "Our Product Innovations"}
+          {data?.title || "Product & Application"}
         </motion.h2>
+        {data?.description && (
+          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
+            {data.description}
+          </p>
+        )}
+        
+        {/* Features List */}
+        {data?.features && data.features.length > 0 && (
+          <div className="mb-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Key Features</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {data.features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg"
+                >
+                  <div className="w-2 h-2 bg-blue-700 rounded-full flex-shrink-0" />
+                  <span className="text-gray-700">{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="grid md:grid-cols-3 gap-10">
           {products.map((item, index) => (
@@ -70,6 +99,26 @@ const TextileProduct: React.FC<ProductsProps> = ({ data }) => {
             </motion.div>
           ))}
         </div>
+        
+        {/* Applications List */}
+        {data?.applications && data.applications.length > 0 && (
+          <div className="mt-16 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Applications</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {data.applications.map((app, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  className="flex items-center gap-2 p-3 bg-blue-50 rounded-lg text-center justify-center"
+                >
+                  <span className="text-gray-700 font-medium">{app}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

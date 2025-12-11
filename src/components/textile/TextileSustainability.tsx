@@ -9,7 +9,9 @@ const fadeIn = {
 interface SustainabilityProps {
   data?: {
     title?: string;
+    description?: string;
     points?: string[];
+    tagline?: string;
     ctaText?: string;
   };
 }
@@ -26,6 +28,16 @@ const TextileSustainability: React.FC<SustainabilityProps> = ({ data }) => {
         >
           {data?.title || "Sustainability & Impact"}
         </motion.h2>
+        {data?.description && (
+          <motion.p
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="show"
+            className="text-lg text-gray-700 max-w-3xl mx-auto mb-6"
+          >
+            {data.description}
+          </motion.p>
+        )}
         {data?.points && data.points.length > 0 ? (
           <ul className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8 list-disc text-left">
             {data.points.map((p, i) => (
@@ -42,6 +54,16 @@ const TextileSustainability: React.FC<SustainabilityProps> = ({ data }) => {
             Our textile development follows a zero-waste philosophy. From water-efficient dyeing
             processes to biodegradable materials, we focus on minimizing carbon footprints
             while ensuring superior quality and durability.
+          </motion.p>
+        )}
+        {data?.tagline && (
+          <motion.p
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="show"
+            className="text-xl font-semibold text-blue-800 max-w-2xl mx-auto mb-8"
+          >
+            {data.tagline}
           </motion.p>
         )}
         <motion.div
