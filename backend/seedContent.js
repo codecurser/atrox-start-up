@@ -22,7 +22,7 @@ const seedData = [
         description:
           "Ataryo Private Limited is a next-generation smart textile innovation company developing solutions that enhance human mobility, safety, and overall well-being.",
         backgroundImage:
-          "https://images.pexels.com/photos/6823567/pexels-photo-6823567.jpeg",
+          "https://images.pexels.com/photos/3099309/pexels-photo-3099309.jpeg?auto=compress&cs=tinysrgb&w=1920",
         ctaText1: "Explore Our Solutions",
         ctaText2: "Partner With Us",
       },
@@ -32,7 +32,7 @@ const seedData = [
         mission: "To engineer intelligent, sustainable, and high-performance textile technologies that create a measurable positive impact on people and the planet.",
         statement:
           "We believe textiles should do more than serve a function — they should enhance life. Every innovation at Ataryo is driven by empathy, research, and the pursuit of meaningful transformation.",
-        image: "https://images.pexels.com/photos/3825517/pexels-photo-3825517.jpeg",
+        image: "https://images.pexels.com/photos/6717035/pexels-photo-6717035.jpeg?auto=compress&cs=tinysrgb&w=800",
       },
       coreValues: {
         title: "Core Values",
