@@ -9,6 +9,9 @@ import HomeTeam from "../components/home/HomeTeam";
 import HomePartnership from "../components/home/HomePartnership";
 import HomeInvestment from "../components/home/HomeInvestment";
 import WhyWeExist from "../components/home/WhyWeExist";
+import ContactSection from "../components/home/ContactSection";
+import CareersSection from "../components/home/CareersSection";
+import SolutionsSlider from "../components/home/SolutionsSlider";
 import { motion } from "framer-motion";
 
 const HomePage: React.FC = () => {
@@ -85,6 +88,8 @@ const HomePage: React.FC = () => {
       
       <HomeHero data={home.hero} />
       
+      <SolutionsSlider />
+      
       <HomeAbout data={home.about} />
       
       <HomeCoreValues data={home.coreValues} />
@@ -97,7 +102,11 @@ const HomePage: React.FC = () => {
       
       <HomeTeam data={home.team} />
       
-      <HomeFooter data={home.footer} />
+      <ContactSection data={{ email: home.footer?.email }} />
+      
+      <CareersSection />
+      
+      <HomeFooter data={{ ...home.footer, contactEmail: home.footer?.email }} />
     </motion.div>
   );
 };

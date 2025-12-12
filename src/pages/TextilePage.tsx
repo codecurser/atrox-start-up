@@ -41,7 +41,7 @@ const TextilePage: React.FC = () => {
       <Sustainability data={textile.sustainability} />
       <Research data={textile.research} />
       <Press data={textile.press} />
-      <TextileFooter data={textile.footer} />
+      <TextileFooter data={{ ...textile.footer, contactEmail: textile.footer?.email }} />
     </div>
   );
 };

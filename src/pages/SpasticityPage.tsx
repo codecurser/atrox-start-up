@@ -41,7 +41,7 @@ const SpasticityPage: React.FC = () => {
       <SpasticityWhoHelps data={spasticity.whoItHelps} />
       <SpasticityResearch data={spasticity.research} />
       <SpasticityPress data={spasticity.press} />
-      <SpasticityFooter data={spasticity.footer} />
+      <SpasticityFooter data={{ ...spasticity.footer, contactEmail: spasticity.footer?.email }} />
     </div>
   );
 };

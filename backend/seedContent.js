@@ -24,7 +24,7 @@ const seedData = [
         backgroundImage:
           "https://images.pexels.com/photos/3099309/pexels-photo-3099309.jpeg?auto=compress&cs=tinysrgb&w=1920",
         ctaText1: "Explore Our Solutions",
-        ctaText2: "Partner With Us",
+        ctaText2: "Become Partner",
       },
       about: {
         title: "About Us",
@@ -90,6 +90,7 @@ const seedData = [
         ],
       },
       footer: {
+        email: "ataryo.info@gmail.com",
         links: [
           { label: "Contact Us", href: "#contact" },
           { label: "Join Us / Careers", href: "#careers" },
@@ -193,6 +194,7 @@ const seedData = [
         ],
       },
       footer: {
+        email: "ataryo.info@gmail.com",
         note: "Contact Us | Careers | Social Media Handles",
         links: [
           { label: "Contact Us", href: "#contact" },
@@ -277,6 +279,7 @@ const seedData = [
         ],
       },
       footer: {
+        email: "ataryo.info@gmail.com",
         note: "Contact Us | Careers | Social Media Handles",
         links: [
           { label: "Contact Us", href: "#contact" },

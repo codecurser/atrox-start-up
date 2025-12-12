@@ -9,6 +9,7 @@ import { ensureAdminUser } from "./utils/createAdmin.js";
 import authRoutes from "./routes/auth.js";
 import contentRoutes from "./routes/content.js";
 import uploadRoutes from "./routes/upload.js";
+import contactRoutes from "./routes/contact.js";
 
 dotenv.config();
 const app = express();
@@ -23,6 +24,7 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api/auth", authRoutes);
 app.use("/api/content", contentRoutes);
 app.use("/api/upload", uploadRoutes);
+app.use("/api/contact", contactRoutes);
 
 // DB connection
 mongoose
