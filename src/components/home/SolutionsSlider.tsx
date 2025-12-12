@@ -1,20 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Shield, Activity } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 const SolutionsSlider: React.FC = () => {
-  const navigate = useNavigate();
-
   const solutions = [
     {
       id: "neuroassistive",
       title: "NeuroAssistive™",
       tagline: "Empowering Movement & Mobility",
       description: "Smart adaptive wearables that support individuals with neuromuscular challenges through intelligent textile engineering and real-time monitoring.",
-      icon: Activity,
       gradient: "from-blue-600 to-cyan-500",
-      image: "https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg",
       features: [
         "Embedded textile sensors",
         "Real-time mobility analytics",
@@ -28,9 +22,7 @@ const SolutionsSlider: React.FC = () => {
       title: "Sustainex™",
       tagline: "Clean, Safe & Sustainable",
       description: "Advanced antimicrobial textiles engineered for healthcare, hospitality, and industrial applications with built-in sustainability.",
-      icon: Shield,
       gradient: "from-green-600 to-emerald-500",
-      image: "https://images.pexels.com/photos/6461509/pexels-photo-6461509.jpeg",
       features: [
         "Antimicrobial technology",
         "Eco-friendly fibers",
@@ -45,14 +37,13 @@ const SolutionsSlider: React.FC = () => {
     <section id="solutions" className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-4">
-            <Sparkles className="w-4 h-4 text-accent" />
             <span className="text-accent font-semibold text-sm">Our Solutions</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -67,27 +58,19 @@ const SolutionsSlider: React.FC = () => {
           {solutions.map((solution, index) => (
             <motion.div
               key={solution.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group relative overflow-hidden rounded-3xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              className="group relative overflow-hidden rounded-3xl bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              style={{ willChange: 'transform' }}
             >
-              {/* Background Image */}
-              <div className="absolute inset-0 overflow-hidden">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-700"
-                  style={{ backgroundImage: `url(${solution.image})` }}
-                />
-                <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-90`} />
-              </div>
+              {/* Background Gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-90`} />
 
               {/* Content */}
               <div className="relative z-10 p-8 text-white h-full flex flex-col">
                 <div className="mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4">
-                    <solution.icon className="w-8 h-8" />
-                  </div>
                   <h3 className="text-3xl font-bold mb-2">{solution.title}</h3>
                   <p className="text-white/90 text-lg font-medium mb-4">
                     {solution.tagline}
@@ -110,13 +93,15 @@ const SolutionsSlider: React.FC = () => {
                 </div>
 
                 {/* CTA Button */}
-                <button
-                  onClick={() => navigate(solution.link)}
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-all group-hover:gap-4"
+                <a
+                  href={solution.link}
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-colors"
                 >
                   Learn More
-                  <ArrowRight className="w-5 h-5" />
-                </button>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
               </div>
             </motion.div>
           ))}
@@ -126,4 +111,4 @@ const SolutionsSlider: React.FC = () => {
   );
 };
 
-export default SolutionsSlider;
+export default React.memo(SolutionsSlider);

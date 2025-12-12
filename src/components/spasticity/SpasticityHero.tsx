@@ -18,10 +18,11 @@ const SpasticityHero: React.FC<HeroProps> = ({ data }) => {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: data?.backgroundImage ? `url(${data.backgroundImage})` : undefined,
+          willChange: 'transform',
         }}
-        initial={{ scale: 1.1 }}
+        initial={{ scale: 1.03 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: "easeOut" }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/90 via-primary-dark/80 to-purple-900/40" />
       </motion.div>
@@ -29,29 +30,30 @@ const SpasticityHero: React.FC<HeroProps> = ({ data }) => {
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
-          style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+          style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", willChange: 'transform, opacity' }}
         >
           {data?.title || "Empowering Movement Through Innovation"}
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed"
+          style={{ willChange: 'transform, opacity' }}
         >
           {data?.subtitle ||
             "Pioneering breakthrough solutions for spasticity treatment and patient care."}
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           className="flex flex-wrap gap-4 justify-center"
         >
           <button className="group px-8 py-4 bg-accent text-white rounded-full font-semibold text-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
@@ -68,7 +70,7 @@ const SpasticityHero: React.FC<HeroProps> = ({ data }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white"
       >
         <motion.div

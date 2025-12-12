@@ -1,29 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useCallback } from "react";
+import { useThrottledScroll } from "../../hooks/useThrottle";
 
 const ScrollProgress: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  const handleScroll = useCallback(() => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    setScrollProgress(progress);
   }, []);
 
+  useThrottledScroll(handleScroll);
+
   return (
-    <motion.div
+    <div
       className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-blue-500 to-purple-500 origin-left z-50"
-      style={{ scaleX: scrollProgress / 100 }}
-      initial={{ scaleX: 0 }}
-      transition={{ duration: 0.1 }}
+      style={{ 
+        transform: `scaleX(${scrollProgress / 100})`,
+        willChange: 'transform'
+      }}
     />
   );
 };
 
-export default ScrollProgress;
+export default React.memo(ScrollProgress);

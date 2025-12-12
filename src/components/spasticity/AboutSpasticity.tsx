@@ -19,9 +19,10 @@ const AboutSpasticity: React.FC<AboutProps> = ({ data }) => {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
               {data?.title || "About NeuroAssistive™"}
@@ -61,9 +62,10 @@ const AboutSpasticity: React.FC<AboutProps> = ({ data }) => {
 
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="relative"
           >
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
@@ -72,6 +74,8 @@ const AboutSpasticity: React.FC<AboutProps> = ({ data }) => {
                   src={data.image}
                   alt="About Spasticity"
                   className="w-full h-[450px] object-cover"
+                  loading="lazy"
+                  style={{ willChange: 'opacity' }}
                 />
               ) : (
                 <div className="w-full h-[450px] bg-gradient-to-br from-primary/20 via-accent/10 to-purple-500/20 flex items-center justify-center">

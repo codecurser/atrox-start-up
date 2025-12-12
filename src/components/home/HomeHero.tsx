@@ -34,10 +34,11 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
+          willChange: 'transform',
         }}
-        initial={{ scale: 1.1 }}
+        initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: "easeOut" }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <div className="absolute inset-0 bg-black/60" /> {/* Overlay */}
       </motion.div>
@@ -46,10 +47,11 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
         {title && (
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight"
+            style={{ willChange: 'transform, opacity' }}
           >
             {title}
           </motion.h1>
@@ -57,10 +59,11 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
 
         {subtitle && (
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-accent-glow font-medium mb-8"
+            style={{ willChange: 'transform, opacity' }}
           >
             {subtitle}
           </motion.h2>
@@ -68,19 +71,20 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
 
         {description && (
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed"
+            style={{ willChange: 'transform, opacity' }}
           >
             {description}
           </motion.p>
         )}
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           {ctaText1 && (
@@ -108,7 +112,7 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-1">

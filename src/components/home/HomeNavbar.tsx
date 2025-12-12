@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useContentStore } from "../../store/contentStore";
 import { Menu, X, User, LogOut } from "lucide-react";
+import { useThrottledScroll } from "../../hooks/useThrottle";
 
 interface NavbarProps {
   data?: {
@@ -26,11 +27,11 @@ const HomeNavbar: React.FC<NavbarProps> = ({ data }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 20);
   }, []);
+
+  useThrottledScroll(handleScroll);
 
   const handleLogin = async () => {
     setLoading(true);
