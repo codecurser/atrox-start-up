@@ -22,7 +22,7 @@ const seedData = [
         description:
           "Ataryo Private Limited is a next-generation smart textile innovation company developing solutions that enhance human mobility, safety, and overall well-being.",
         backgroundImage:
-          "https://images.pexels.com/photos/3099309/pexels-photo-3099309.jpeg?auto=compress&cs=tinysrgb&w=1920",
+          "https://images.pexels.com/photos/8246743/pexels-photo-8246743.jpeg?auto=compress&cs=tinysrgb&w=1920",
         ctaText1: "Explore Our Solutions",
         ctaText2: "Become Partner",
       },
@@ -270,12 +270,12 @@ const seedData = [
       },
       press: {
         title: "Press & Media",
-        description: "Explore updates on technology features, innovation awards, scientific publications, and product launches.",
+        description: "Explore updates on:",
         articles: [
-          { headline: "NeuroAssistive™ Technology Features", link: "#" },
-          { headline: "Innovation Awards", link: "#" },
-          { headline: "Scientific Publications", link: "#" },
-          { headline: "Product Launches", link: "#" },
+          { headline: "Technology features", link: "#" },
+          { headline: "Innovation awards", link: "#" },
+          { headline: "Scientific publications", link: "#" },
+          { headline: "Product launches", link: "#" },
         ],
       },
       footer: {
