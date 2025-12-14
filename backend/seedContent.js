@@ -116,7 +116,7 @@ const seedData = [
         title: "Clean. Safe. Sustainable.",
         subtitle:
           "Advanced antimicrobial textiles engineered for a healthier, more responsible world.",
-        backgroundImage: "https://images.pexels.com/photos/6461509/pexels-photo-6461509.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        backgroundImage: "https://images.pexels.com/photos/6634604/pexels-photo-6634604.jpeg?auto=compress&cs=tinysrgb&w=1920",
         ctaText: "Explore Innovation",
       },
       about: {

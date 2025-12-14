@@ -1,69 +1,75 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart, UserCheck, Award } from "lucide-react";
+import { Heart, UserCheck, Award, Users, Activity, Stethoscope } from "lucide-react";
 
 interface WhoHelpsProps {
   data?: {
     title?: string;
-    beneficiaries?: { name: string; description: string }[];
+    description?: string;
+    people?: { name: string; role: string }[];
   };
 }
 
 const SpasticityWhoHelps: React.FC<WhoHelpsProps> = ({ data }) => {
-  const beneficiaries = data?.beneficiaries || [
-    {
-      name: "Patients with Cerebral Palsy",
-      description: "Improving mobility and comfort through adaptive fabrics.",
-    },
-    {
-      name: "Stroke Survivors",
-      description: "Supporting recovery with smart rehabilitation tools.",
-    },
-    {
-      name: "Athletes & Fitness Enthusiasts",
-      description: "Enhancing performance and preventing injuries.",
-    },
-  ];
-
-  const icons = [Heart, UserCheck, Award];
+  const people = data?.people || [];
+  const icons = [Heart, UserCheck, Award, Users, Activity, Stethoscope];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-gradient-to-b from-white to-blue-50/30">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            {data?.title || "Who We Help"}
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            {data?.title || "Who It Helps"}
           </h2>
-          <div className="w-20 h-1.5 bg-accent mx-auto rounded-full" />
+          {data?.description && (
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              {data.description}
+            </p>
+          )}
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-10">
-          {beneficiaries.map((person, i) => {
-            const Icon = icons[i] || Heart;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.15, duration: 0.7 }}
-                className="group bg-gradient-to-br from-white to-slate-50 p-8 rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:-translate-y-2"
-              >
-                <div className="w-16 h-16 rounded-full bg-accent text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                  <Icon size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-primary mb-3">{person.name}</h3>
-                <p className="text-secondary leading-relaxed">{person.description}</p>
-              </motion.div>
-            );
-          })}
-        </div>
+        {/* People Cards */}
+        {people.length > 0 && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {people.map((person, index) => {
+              const Icon = icons[index % icons.length];
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-blue-100 hover:-translate-y-2"
+                >
+                  {/* Icon */}
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-blue-600 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                    <Icon size={28} />
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-accent transition-colors">
+                    {person.name}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">{person.role}</p>
+
+                  {/* Decorative Corner */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-200/20 to-transparent rounded-bl-full" />
+                </motion.div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );
 };
 
-export default SpasticityWhoHelps;
+export default React.memo(SpasticityWhoHelps);

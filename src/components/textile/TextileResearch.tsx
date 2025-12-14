@@ -22,7 +22,7 @@ const TextileResearch: React.FC<ResearchProps> = ({ data }) => {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, #3b82f6 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 2px 2px, #10b981 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
       </div>
@@ -63,7 +63,7 @@ const TextileResearch: React.FC<ResearchProps> = ({ data }) => {
                   loading="lazy"
                 />
               ) : (
-                <div className="w-full h-[400px] bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                <div className="w-full h-[400px] bg-gradient-to-br from-green-500/20 via-blue-500/20 to-emerald-500/20 flex items-center justify-center">
                   <div className="text-center">
                     <div className="text-8xl mb-4">🔬</div>
                     <p className="text-2xl font-bold text-gray-800">Research & Innovation</p>
@@ -72,12 +72,12 @@ const TextileResearch: React.FC<ResearchProps> = ({ data }) => {
                 </div>
               )}
               {/* Decorative Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent" />
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 border-4 border-blue-100">
-              <p className="text-4xl font-bold text-blue-600">R&D</p>
+            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 border-4 border-green-100">
+              <p className="text-4xl font-bold text-green-600">R&D</p>
               <p className="text-sm text-gray-600">Innovation Lab</p>
             </div>
           </motion.div>
@@ -93,16 +93,16 @@ const TextileResearch: React.FC<ResearchProps> = ({ data }) => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group flex items-start gap-4 p-6 bg-gradient-to-r from-white to-blue-50 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-blue-100"
+                  className="group flex items-start gap-4 p-6 bg-gradient-to-r from-white to-green-50 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-green-100"
                 >
                   {/* Icon */}
-                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Icon className="w-7 h-7 text-white" />
                   </div>
 
                   {/* Content */}
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-green-600 transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-gray-600">{item.desc}</p>

@@ -47,12 +47,12 @@ const TextilePress: React.FC<PressProps> = ({ data }) => {
               >
                 {/* Icon Header */}
                 <div className="p-6 pb-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-accent to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Newspaper className="w-7 h-7 text-white" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-accent transition-colors line-clamp-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors line-clamp-2">
                     {press.title}
                   </h3>
 
@@ -67,7 +67,7 @@ const TextilePress: React.FC<PressProps> = ({ data }) => {
                   {/* Read More Link */}
                   <a
                     href={press.link}
-                    className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all group/link"
+                    className="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all group/link"
                   >
                     Read Article
                     <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
@@ -75,7 +75,7 @@ const TextilePress: React.FC<PressProps> = ({ data }) => {
                 </div>
 
                 {/* Decorative Bottom Border */}
-                <div className="h-1 bg-gradient-to-r from-accent to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                <div className="h-1 bg-gradient-to-r from-green-500 to-emerald-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </motion.div>
             ))}
           </div>

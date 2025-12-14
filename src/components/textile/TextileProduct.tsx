@@ -26,9 +26,9 @@ const TextileProduct: React.FC<ProductsProps> = ({ data }) => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-4">
-            <Sparkles className="w-4 h-4 text-accent" />
-            <span className="text-accent font-semibold text-sm">Our Products</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 rounded-full mb-4">
+            <Sparkles className="w-4 h-4 text-green-600" />
+            <span className="text-green-600 font-semibold text-sm">Our Products</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             {data?.title || "Product & Application"}
@@ -99,7 +99,7 @@ const TextileProduct: React.FC<ProductsProps> = ({ data }) => {
                 </div>
 
                 {/* Hover Effect Border */}
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent rounded-2xl transition-all duration-300 pointer-events-none" />
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-green-500 rounded-2xl transition-all duration-300 pointer-events-none" />
               </motion.div>
             ))}
           </div>
@@ -125,7 +125,7 @@ const TextileProduct: React.FC<ProductsProps> = ({ data }) => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="px-6 py-3 bg-gradient-to-r from-accent/10 to-purple-500/10 rounded-full border border-accent/20 hover:border-accent/40 transition-all"
+                  className="px-6 py-3 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-full border border-green-500/20 hover:border-green-500/40 transition-all"
                 >
                   <span className="text-gray-700 font-medium">{app}</span>
                 </motion.div>
