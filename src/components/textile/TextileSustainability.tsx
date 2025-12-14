@@ -1,10 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-const fadeIn = {
-  hidden: { opacity: 0, y: 60 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-};
+import { Leaf, Droplet, Recycle, Heart } from "lucide-react";
 
 interface SustainabilityProps {
   data?: {
@@ -17,63 +13,103 @@ interface SustainabilityProps {
 }
 
 const TextileSustainability: React.FC<SustainabilityProps> = ({ data }) => {
+  const icons = [Leaf, Droplet, Recycle, Heart];
+
   return (
-    <section className="bg-gradient-to-b from-indigo-50 to-blue-100 py-20" id="sustainability">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <motion.h2
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="show"
-          className="text-4xl font-bold text-gray-800 mb-8"
-        >
-          {data?.title || "Sustainability & Impact"}
-        </motion.h2>
-        {data?.description && (
-          <motion.p
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="show"
-            className="text-lg text-gray-700 max-w-3xl mx-auto mb-6"
-          >
-            {data.description}
-          </motion.p>
-        )}
-        {data?.points && data.points.length > 0 ? (
-          <ul className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8 list-disc text-left">
-            {data.points.map((p, i) => (
-              <li key={i} className="ml-6 mb-2">{p}</li>
-            ))}
-          </ul>
-        ) : (
-          <motion.p
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="show"
-            className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8"
-          >
-            Our textile development follows a zero-waste philosophy. From water-efficient dyeing
-            processes to biodegradable materials, we focus on minimizing carbon footprints
-            while ensuring superior quality and durability.
-          </motion.p>
-        )}
-        {data?.tagline && (
-          <motion.p
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="show"
-            className="text-xl font-semibold text-blue-800 max-w-2xl mx-auto mb-8"
-          >
-            {data.tagline}
-          </motion.p>
-        )}
+    <section className="py-24 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 relative overflow-hidden" id="sustainability">
+      {/* Decorative Background */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-green-200/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Header */}
         <motion.div
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="show"
-          className="flex justify-center mt-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <button className="bg-blue-700 text-white px-8 py-3 rounded-full hover:bg-blue-800 transition-all">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            {data?.title || "Sustainability & Impact"}
+          </h2>
+          {data?.description && (
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              {data.description}
+            </p>
+          )}
+        </motion.div>
+
+        {/* Impact Cards */}
+        {data?.points && data.points.length > 0 ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {data.points.map((point, index) => {
+              const Icon = icons[index % icons.length];
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/50"
+                >
+                  {/* Icon */}
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-7 h-7 text-white" />
+                  </div>
+
+                  {/* Content */}
+                  <p className="text-gray-700 leading-relaxed font-medium">{point}</p>
+
+                  {/* Decorative Corner */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-200/20 to-transparent rounded-bl-full" />
+                </motion.div>
+              );
+            })}
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-xl max-w-4xl mx-auto mb-12"
+          >
+            <p className="text-lg text-gray-700 leading-relaxed text-center">
+              Our textile development follows a zero-waste philosophy. From water-efficient dyeing
+              processes to biodegradable materials, we focus on minimizing carbon footprints
+              while ensuring superior quality and durability.
+            </p>
+          </motion.div>
+        )}
+
+        {/* Tagline */}
+        {data?.tagline && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <div className="inline-block bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-4 rounded-full shadow-lg">
+              <p className="text-xl font-bold">{data.tagline}</p>
+            </div>
+          </motion.div>
+        )}
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center"
+        >
+          <button className="group px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2">
             {data?.ctaText || "Explore Our Eco Journey"}
+            <Leaf className="w-5 h-5 group-hover:rotate-12 transition-transform" />
           </button>
         </motion.div>
       </div>
@@ -81,4 +117,4 @@ const TextileSustainability: React.FC<SustainabilityProps> = ({ data }) => {
   );
 };
 
-export default TextileSustainability;
+export default React.memo(TextileSustainability);

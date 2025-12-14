@@ -1,10 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 60 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-};
+import { CheckCircle, Sparkles } from "lucide-react";
 
 interface ProductsProps {
   data?: {
@@ -17,111 +13,129 @@ interface ProductsProps {
 }
 
 const TextileProduct: React.FC<ProductsProps> = ({ data }) => {
-  const products = data?.items || [
-    {
-      title: "Smart Fabrics",
-      desc:
-        "Integrating sensors within textiles for responsive performance in health and lifestyle applications.",
-      image: "/images/smart-fabric.jpg",
-    },
-    {
-      title: "Adaptive Clothing",
-      desc:
-        "AI-driven materials that adapt to temperature, comfort, and movement for dynamic environments.",
-      image: "/images/adaptive-clothing.jpg",
-    },
-    {
-      title: "Technical Textiles",
-      desc:
-        "Durable, sustainable fabrics for industrial, medical, and performance-based use cases.",
-      image: "/images/technical-textiles.jpg",
-    },
-  ];
+  const products = data?.items || [];
 
   return (
-    <section className="py-20 bg-white" id="products">
+    <section className="py-24 bg-gradient-to-b from-white to-gray-50" id="products">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          className="text-4xl font-bold text-gray-800 mb-6 text-center"
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          {data?.title || "Product & Application"}
-        </motion.h2>
-        {data?.description && (
-          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
-            {data.description}
-          </p>
-        )}
-        
-        {/* Features List */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-4">
+            <Sparkles className="w-4 h-4 text-accent" />
+            <span className="text-accent font-semibold text-sm">Our Products</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            {data?.title || "Product & Application"}
+          </h2>
+          {data?.description && (
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              {data.description}
+            </p>
+          )}
+        </motion.div>
+
+        {/* Features Grid */}
         {data?.features && data.features.length > 0 && (
-          <div className="mb-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Key Features</h3>
-            <div className="grid md:grid-cols-2 gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-16"
+          >
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
               {data.features.map((feature, index) => (
                 <motion.div
                   key={index}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100"
                 >
-                  <div className="w-2 h-2 bg-blue-700 rounded-full flex-shrink-0" />
-                  <span className="text-gray-700">{feature}</span>
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-gray-700 font-medium text-sm">{feature}</span>
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+        )}
+
+        {/* Products Cards */}
+        {products.length > 0 && (
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {products.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              >
+                {/* Image */}
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <h3 className="absolute bottom-4 left-4 text-2xl font-bold text-white">
+                    {item.title}
+                  </h3>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                </div>
+
+                {/* Hover Effect Border */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent rounded-2xl transition-all duration-300 pointer-events-none" />
+              </motion.div>
+            ))}
           </div>
         )}
 
-        <div className="grid md:grid-cols-3 gap-10">
-          {products.map((item, index) => (
-            <motion.div
-              key={index}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              className="bg-gray-50 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all"
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="h-52 w-full object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-blue-700 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        
-        {/* Applications List */}
+        {/* Applications */}
         {data?.applications && data.applications.length > 0 && (
-          <div className="mt-16 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Applications</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-5xl mx-auto"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              Applications
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
               {data.applications.map((app, index) => (
                 <motion.div
                   key={index}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  className="flex items-center gap-2 p-3 bg-blue-50 rounded-lg text-center justify-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="px-6 py-3 bg-gradient-to-r from-accent/10 to-purple-500/10 rounded-full border border-accent/20 hover:border-accent/40 transition-all"
                 >
                   <span className="text-gray-700 font-medium">{app}</span>
                 </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>
   );
 };
 
-export default TextileProduct;
+export default React.memo(TextileProduct);
