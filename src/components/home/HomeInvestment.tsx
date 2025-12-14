@@ -67,10 +67,7 @@ const HomeInvestment: React.FC<InvestmentProps> = ({ data }) => {
                 </div>
               )}
 
-              <button className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg hover:shadow-accent/50 group">
-                Connect With Us
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
+
             </motion.div>
 
             <motion.div

@@ -17,7 +17,7 @@ const HomeFooter: React.FC<FooterProps> = ({ data }) => {
     companyName = "Ataryo Labs",
     logo = "",
     contactEmail = "hello@ataryolabs.com",
-    address = "Bengaluru, India",
+    address = "Greater Noida, India",
     links = [
       { label: "About", href: "#" },
       { label: "Careers", href: "#" },

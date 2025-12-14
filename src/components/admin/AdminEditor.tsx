@@ -79,7 +79,7 @@ const FIXED_TEMPLATES: Record<string, any> = {
   companyName: "Ataryo Labs",
   logo: "/images/logo-light.svg",
   contactEmail: "contact@ataryo.com",
-  address: "Registered Office: Hyderabad, India",
+  address: "Registered Office: Greater Noida, India",
   links: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms", href: "/terms" },
@@ -106,7 +106,7 @@ const FIXED_TEMPLATES: Record<string, any> = {
   companyName: "Ataryo Labs",
   logo: "/images/logo-light.svg",
   contactEmail: "contact@ataryo.com",
-  address: "Registered Office: Hyderabad, India",
+  address: "Registered Office: Greater Noida, India",
   links: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms", href: "/terms" },
@@ -132,7 +132,7 @@ const FIXED_TEMPLATES: Record<string, any> = {
   companyName: "Ataryo Labs",
   logo: "/images/logo-light.svg",
   contactEmail: "contact@ataryo.com",
-  address: "Registered Office: Hyderabad, India",
+  address: "Registered Office: Greater Noida, India",
   links: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms", href: "/terms" },

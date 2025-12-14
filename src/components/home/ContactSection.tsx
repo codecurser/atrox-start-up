@@ -19,7 +19,7 @@ const ContactSection: React.FC<ContactProps> = ({ data }) => {
     title = "Get In Touch",
     email = "ataryo.info@gmail.com",
     phone = "+91 XXX XXX XXXX",
-    address = "Bengaluru, India",
+    address = "Greater Noida, India",
   } = data || {};
 
   return (
