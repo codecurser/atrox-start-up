@@ -83,10 +83,33 @@ const seedData = [
         },
       },
       team: {
-        title: "Team Lead",
-        description: "Ataryo is guided by an interdisciplinary leadership team with expertise in biomedical engineering, textile science, wearable electronics, design innovation, and product commercialization. Our founder leads with a vision to merge advanced technology with compassionate problem-solving.",
+        title: "Our Founders",
+        description: "Ataryo is led by visionary founders with expertise in design innovation and advanced technology, committed to creating solutions that enhance human life through intelligent textiles.",
         members: [
-          { name: "Leadership Team", role: "Interdisciplinary Experts", image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg" },
+          { 
+            name: "Kirti Kushwaha", 
+            role: "Founder", 
+            education: "Masters in Design",
+            experience: "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
+            image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+            social: {
+              twitter: "#",
+              dribbble: "#",
+              linkedin: "#"
+            }
+          },
+          { 
+            name: "Ranjan Kumar Shukla", 
+            role: "Co-founder", 
+            education: "Master in Information Technology",
+            experience: "Lead engineering teams at Figma, Pitch, and Protocol Labs.",
+            image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg",
+            social: {
+              twitter: "#",
+              github: "#",
+              linkedin: "#"
+            }
+          },
         ],
       },
       footer: {

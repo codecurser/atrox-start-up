@@ -100,11 +100,11 @@ const HomePage: React.FC = () => {
       
       {investment && <HomeInvestment data={investment} />}
       
-      <HomeTeam data={home.team} />
+      <CareersSection />
       
       <ContactSection data={{ email: home.footer?.email }} />
       
-      <CareersSection />
+      <HomeTeam data={home.team} />
       
       <HomeFooter data={{ ...home.footer, contactEmail: home.footer?.email }} />
     </motion.div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import PartnerForm from "../shared/PartnerForm";
 
 interface ContactProps {
@@ -63,15 +63,7 @@ const ContactSection: React.FC<ContactProps> = ({ data }) => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm mb-1">Phone</p>
-                    <p className="text-lg">{phone}</p>
-                  </div>
-                </div>
+
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
