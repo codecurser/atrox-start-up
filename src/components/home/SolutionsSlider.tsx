@@ -5,7 +5,7 @@ const SolutionsSlider: React.FC = () => {
   const solutions = [
     {
       id: "neuroassistive",
-      title: "NeuroAssistive™",
+      title: "ModeNeu™",
       tagline: "Empowering Movement & Mobility",
       description: "Smart adaptive wearables that support individuals with neuromuscular challenges through intelligent textile engineering and real-time monitoring.",
       gradient: "from-blue-600 to-cyan-500",

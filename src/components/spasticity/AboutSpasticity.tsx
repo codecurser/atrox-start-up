@@ -25,7 +25,7 @@ const AboutSpasticity: React.FC<AboutProps> = ({ data }) => {
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
-              {data?.title || "About NeuroAssistive™"}
+              {data?.title || "About ModeNeu™"}
             </h2>
             {data?.description && (
               <p className="text-lg text-secondary leading-relaxed mb-8">

@@ -112,10 +112,10 @@ const TextileProduct: React.FC<ProductsProps> = ({ data }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-5xl mx-auto"
+            className="max-w-5xl mx-auto mt-16"
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Applications
+              All Applications
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {data.applications.map((app, index) => (

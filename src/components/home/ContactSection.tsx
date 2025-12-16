@@ -18,7 +18,6 @@ const ContactSection: React.FC<ContactProps> = ({ data }) => {
   const {
     title = "Get In Touch",
     email = "ataryo.info@gmail.com",
-    phone = "+91 XXX XXX XXXX",
     address = "Greater Noida, India",
   } = data || {};
 
@@ -89,7 +88,7 @@ const ContactSection: React.FC<ContactProps> = ({ data }) => {
             <h3 className="text-2xl font-semibold mb-4">Interested in Partnering?</h3>
             <p className="text-gray-300 mb-8 leading-relaxed">
               We're always looking for innovative partners to collaborate with. 
-              Whether you're interested in our NeuroAssistive™ or Sustainex™ solutions, 
+              Whether you're interested in our ModeNeu™ or Sustainex™ solutions, 
               let's explore how we can work together.
             </p>
             

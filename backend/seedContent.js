@@ -12,7 +12,7 @@ const seedData = [
       navbar: {
         title: "ATARYO",
         links: [
-          { label: "NeuroAssistive™", href: "/spasticity" },
+          { label: "ModeNeu™", href: "/spasticity" },
           { label: "Sustainex™", href: "/textile" },
         ],
       },
@@ -130,7 +130,7 @@ const seedData = [
         title: "Sustainex™",
         links: [
           { label: "Home", href: "/", internal: true },
-          { label: "NeuroAssistive™", href: "/spasticity", internal: true },
+          { label: "ModeNeu™", href: "/spasticity", internal: true },
           { label: "Sustainex™", href: "/textile", internal: true },
           { label: "Contact", href: "#contact", internal: false },
         ],
@@ -179,6 +179,24 @@ const seedData = [
             desc:
               "Industrial-grade antibacterial textiles for protective work clothing and safety equipment.",
             image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg",
+          },
+          {
+            title: "Public Institutions",
+            desc:
+              "Durable antibacterial fabrics for schools, offices, and public spaces ensuring safe environments.",
+            image: "https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg",
+          },
+          {
+            title: "Home Textiles",
+            desc:
+              "Comfortable antibacterial fabrics for bedding, curtains, and everyday home use with lasting protection.",
+            image: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg",
+          },
+          {
+            title: "Sportswear",
+            desc:
+              "High-performance antibacterial athletic fabrics that resist odor and bacteria during intense activities.",
+            image: "https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg",
           },
         ],
         applications: [
@@ -230,10 +248,10 @@ const seedData = [
     section: "spasticity",
     data: {
       navbar: {
-        title: "NeuroAssistive™",
+        title: "ModeNeu™",
         links: [
           { label: "Home", href: "/", internal: true },
-          { label: "NeuroAssistive™", href: "/spasticity", internal: true },
+          { label: "ModeNeu™", href: "/spasticity", internal: true },
           { label: "Sustainex™", href: "/textile", internal: true },
           { label: "Contact", href: "#contact", internal: false },
         ],
@@ -245,7 +263,7 @@ const seedData = [
         backgroundImage: "https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg",
       },
       about: {
-        title: "About NeuroAssistive™",
+        title: "About ModeNeu™",
         vision: "To empower individuals with neuromuscular and movement challenges through intelligent, supportive, and accessible wearable solutions.",
         mission: "To integrate adaptive textile engineering with smart sensing systems, creating wearables that monitor, assist, and enhance daily mobility and rehabilitation.",
         description:
