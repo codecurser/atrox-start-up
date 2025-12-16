@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Handshake, Users } from "lucide-react";
+import PartnerForm from "../shared/PartnerForm";
 
 interface PartnershipProps {
   data?: {
@@ -12,6 +13,8 @@ interface PartnershipProps {
 }
 
 const HomePartnership: React.FC<PartnershipProps> = ({ data }) => {
+  const [isPartnerFormOpen, setIsPartnerFormOpen] = useState(false);
+  
   if (!data) return null;
 
   const {
@@ -62,7 +65,10 @@ const HomePartnership: React.FC<PartnershipProps> = ({ data }) => {
               </div>
             )}
 
-            <button className="px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-full font-semibold transition-all duration-300">
+            <button 
+              onClick={() => setIsPartnerFormOpen(true)}
+              className="px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-full font-semibold transition-all duration-300"
+            >
               Become a Partner
             </button>
           </motion.div>
@@ -86,9 +92,14 @@ const HomePartnership: React.FC<PartnershipProps> = ({ data }) => {
           </motion.div>
         </div>
       </div>
+
+      {/* Partner Form Modal */}
+      <PartnerForm 
+        isOpen={isPartnerFormOpen} 
+        onClose={() => setIsPartnerFormOpen(false)} 
+      />
     </section>
   );
 };
 
 export default HomePartnership;
-
