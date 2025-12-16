@@ -274,12 +274,9 @@ const seedData = [
         title: "Our Innovation — Products & Applications",
         description: "Our smart adaptive wearables incorporate advanced technology to support movement and mobility.",
         items: [
-          { name: "Embedded textile sensors", description: "Advanced sensing technology integrated directly into fabric." },
-          { name: "Muscle & movement monitoring", description: "Real-time tracking of muscle activity and movement patterns." },
-          { name: "Adaptive compression and support mapping", description: "Dynamic support that adjusts to your body's needs." },
-          { name: "Real-time mobility analytics", description: "Data-driven insights for clinicians and users." },
-          { name: "Skin-friendly, breathable materials", description: "Comfort for all-day wear with medical-grade materials." },
-          { name: "Day-long usability and comfort", description: "Designed for continuous use throughout your daily activities." },
+          { name: "Smart Rehabilitation Fabrics", description: "Advanced sensing technology integrated into fabric with real-time muscle and movement monitoring.", image: "https://images.pexels.com/photos/6110968/pexels-photo-6110968.jpeg" },
+          { name: "Assistive Technology Devices", description: "Intelligent wearables enhancing mobility and muscle control through adaptive compression and support.", image: "https://images.pexels.com/photos/8436624/pexels-photo-8436624.jpeg" },
+          { name: "Data-Driven Insights", description: "Real-time mobility analytics and patient feedback for personalized therapy and rehabilitation.", image: "https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg" },
         ],
         applications: [
           "Neuromuscular disorders",
