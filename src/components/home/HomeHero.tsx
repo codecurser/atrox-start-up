@@ -31,15 +31,21 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary-dark">
       {/* Clean Background Image */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
-          willChange: 'transform, opacity',
-        }}
+        className="absolute inset-0"
         initial={{ scale: 1.05, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
       >
+        {backgroundImage && (
+          <img
+            src={backgroundImage}
+            alt="Hero Background"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            // @ts-ignore - fetchPriority is valid HTML
+            fetchPriority="high"
+          />
+        )}
         {/* Professional gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       </motion.div>

@@ -16,15 +16,21 @@ const TextileHero: React.FC<HeroProps> = ({ data }) => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary-dark">
       {/* Background with Parallax Effect */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: data?.backgroundImage ? `url(${data.backgroundImage})` : undefined,
-          willChange: 'transform',
-        }}
+        className="absolute inset-0"
         initial={{ scale: 1.03 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
+        {data?.backgroundImage && (
+          <img
+            src={data.backgroundImage}
+            alt="Hero Background"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            // @ts-ignore - fetchPriority is valid HTML
+            fetchPriority="high"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/90 via-primary-dark/70 to-accent/30" />
       </motion.div>
 
