@@ -91,7 +91,7 @@ const seedData = [
             role: "Founder", 
             education: "Masters in Design",
             experience: "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-            image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+            image: "/founder-2.jpg",
             social: {
               twitter: "#",
               dribbble: "#",
@@ -103,7 +103,7 @@ const seedData = [
             role: "Co-founder", 
             education: "Master in Information Technology",
             experience: "Lead engineering teams at Figma, Pitch, and Protocol Labs.",
-            image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg",
+            image: "/founder-1.jpg",
             social: {
               twitter: "#",
               github: "#",

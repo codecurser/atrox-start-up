@@ -67,7 +67,8 @@ const HomeTeam: React.FC<TeamSectionProps> = ({ data }) => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
+                    style={{ objectPosition: 'center 20%' }}
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-accent to-blue-600 flex items-center justify-center text-white text-4xl font-bold">
