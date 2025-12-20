@@ -32,7 +32,7 @@ const seedData = [
         mission: "To engineer intelligent, sustainable, and high-performance textile technologies that create a measurable positive impact on people and the planet.",
         statement:
           "We believe textiles should do more than serve a function — they should enhance life. Every innovation at Ataryo is driven by empathy, research, and the pursuit of meaningful transformation.",
-        image: "https://images.pexels.com/photos/6717035/pexels-photo-6717035.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "https://images.pexels.com/photos/31321061/pexels-photo-31321061.jpeg",
       },
       coreValues: {
         title: "Core Values",
