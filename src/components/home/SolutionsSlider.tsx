@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const SolutionsSlider: React.FC = () => {
@@ -93,15 +94,15 @@ const SolutionsSlider: React.FC = () => {
                 </div>
 
                 {/* CTA Button */}
-                <a
-                  href={solution.link}
+                <Link
+                  to={solution.link}
                   className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-colors"
                 >
                   Learn More
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}
