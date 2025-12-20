@@ -14,16 +14,23 @@ const SpasticityHero: React.FC<HeroProps> = ({ data }) => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary-dark">
       {/* Background with Parallax Effect */}
+      {/* Background with Parallax Effect */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: data?.backgroundImage ? `url(${data.backgroundImage})` : undefined,
-          willChange: 'transform',
-        }}
+        className="absolute inset-0"
         initial={{ scale: 1.03 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
+        {data?.backgroundImage && (
+          <img
+            src={data.backgroundImage}
+            alt="Hero Background"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            // @ts-ignore - fetchPriority is valid HTML but may not be in React types yet
+            fetchPriority="high"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/70 via-primary-dark/60 to-purple-900/30" />
       </motion.div>
 
