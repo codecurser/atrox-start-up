@@ -24,7 +24,7 @@ const SpasticityHero: React.FC<HeroProps> = ({ data }) => {
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/90 via-primary-dark/80 to-purple-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/70 via-primary-dark/60 to-purple-900/30" />
       </motion.div>
 
       {/* Content */}
