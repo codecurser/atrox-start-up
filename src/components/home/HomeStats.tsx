@@ -113,7 +113,7 @@ const HomeStats: React.FC = () => {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={{ scale: 1.02, y: -3 }}
                 className="relative group"
               >
                 <div className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:border-accent/50 transition-all duration-300 text-center">
@@ -208,4 +208,4 @@ const AnimatedCounterWithFormatter: React.FC<{
   );
 };
 
-export default HomeStats;
+export default React.memo(HomeStats);

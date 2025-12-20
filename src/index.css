@@ -17,6 +17,9 @@
   body {
     @apply font-['Outfit'] antialiased;
     overflow-x: hidden;
+    /* Enable GPU acceleration */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Hide scrollbar */
@@ -28,17 +31,26 @@
   * {
     scrollbar-width: none;
   }
+
+  /* Performance optimizations */
+  img, video {
+    will-change: transform;
+    transform: translateZ(0);
+  }
 }
 
 @layer utilities {
-  /* Smooth transitions for all elements */
+  /* Smooth transitions for all elements with GPU acceleration */
   .smooth-transition {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+    transform: translateZ(0);
   }
 
-  /* Glass effect */
+  /* Glass effect with performance optimization */
   .glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
+    will-change: backdrop-filter;
   }
 
   /* Gradient text */
@@ -46,31 +58,46 @@
     @apply bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent;
   }
 
-  /* Floating animation */
+  /* Floating animation with GPU acceleration */
   @keyframes float {
     0%, 100% {
-      transform: translateY(0px);
+      transform: translate3d(0, 0, 0);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translate3d(0, -20px, 0);
     }
   }
 
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    will-change: transform;
   }
 
-  /* Pulse glow */
+  /* Pulse glow with optimized performance */
   @keyframes pulse-glow {
     0%, 100% {
       box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+      transform: scale(1);
     }
     50% {
       box-shadow: 0 0 40px rgba(16, 185, 129, 0.6);
+      transform: scale(1.02);
     }
   }
 
   .animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
+    animation: pulse-glow 3s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    will-change: box-shadow, transform;
+  }
+
+  /* Performance helper classes */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .optimize-animations {
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
 }

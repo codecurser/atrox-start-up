@@ -34,11 +34,11 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
-          willChange: 'transform',
+          willChange: 'transform, opacity',
         }}
         initial={{ scale: 1.05, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
       >
         {/* Professional gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
@@ -53,7 +53,7 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight"
           >
             {title}
@@ -64,7 +64,7 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-xl md:text-2xl text-blue-200 font-medium mb-6"
           >
             {subtitle}
@@ -75,7 +75,7 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed"
           >
             {description}
@@ -85,7 +85,7 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           {ctaText1 && (
@@ -94,8 +94,8 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
                 document.querySelector('#solutions')?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="px-10 py-4 bg-accent hover:bg-accent-hover text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-accent/50 text-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               {ctaText1}
             </motion.button>
@@ -104,8 +104,8 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
             <motion.button 
               onClick={() => setIsPartnerFormOpen(true)}
               className="px-10 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 hover:border-white/50 text-white rounded-full font-semibold transition-all text-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               {ctaText2}
             </motion.button>
@@ -117,13 +117,13 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center p-1">
           <motion.div
             animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             className="w-1.5 h-1.5 bg-white rounded-full"
           />
         </div>
@@ -138,4 +138,4 @@ const HomeHero: React.FC<HeroProps> = ({ data }) => {
   );
 };
 
-export default HomeHero;
+export default React.memo(HomeHero);
