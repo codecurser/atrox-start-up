@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Microscope, Lightbulb, Cpu } from "lucide-react";
+import { FlaskConical, Microscope, Lightbulb, Leaf } from "lucide-react";
 
 interface ResearchProps {
   data?: {
@@ -12,105 +12,98 @@ interface ResearchProps {
 
 const TextileResearch: React.FC<ResearchProps> = ({ data }) => {
   const highlights = [
-    { icon: Microscope, title: "Bio-based Polymers", desc: "Next-gen sustainable materials" },
-    { icon: Lightbulb, title: "Smart Fabric Integration", desc: "Intelligent textile systems" },
-    { icon: Cpu, title: "Advanced Fiber Spinning", desc: "Precision manufacturing tech" },
+    { heading: "Bio-based Polymers", details: "Developing next-generation sustainable materials from renewable resources." },
+    { heading: "Advanced Fiber Spinning", details: "Precision manufacturing technology for superior textile performance." },
   ];
+
+  const icons = [Microscope, Lightbulb, Leaf, FlaskConical];
 
   return (
     <section className="py-24 bg-white relative overflow-hidden" id="research">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, #10b981 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
+       {/* Subtle Grid Background */}
+       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            {data?.title || "Research & Development"}
-          </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            {data?.summary ||
-              "Our R&D focuses on the intersection of biotechnology, artificial intelligence, and sustainable design — developing fabrics that monitor vitals, react to environmental stimuli, and optimize human performance."}
-          </p>
-        </motion.div>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Text & Cards Side */}
+            <div>
+                 <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-12"
+                  >
+                    <div className="flex items-center gap-3 text-green-600 font-bold mb-4">
+                        <span className="w-10 h-[2px] bg-green-600" />
+                        <span className="uppercase tracking-widest text-sm">Our Research</span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+                      {data?.title || "Research & Development"}
+                    </h2>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                        {data?.summary || "Exploring bio-based polymers, advanced fiber spinning, and smart fabric integrations for next-generation sustainable textiles."}
+                    </p>
+                  </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image/Visual */}
+                  <div className="space-y-6">
+                    {highlights.map((item, index) => {
+                      const Icon = icons[index % icons.length];
+                      return (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -30 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                          className="group relative flex gap-6 p-7 bg-white rounded-3xl shadow-[0_4px_20px_rgb(0,0,0,0.06)] border-2 border-gray-100 hover:shadow-[0_15px_40px_rgba(16,185,129,0.25)] hover:border-green-200 transition-all duration-500 overflow-hidden"
+                        >
+                          {/* Gradient background on hover */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-green-50 to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                          
+                          <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-green-600 group-hover:to-emerald-600 transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:shadow-green-500/30 group-hover:scale-110 group-hover:rotate-6">
+                            <Icon className="w-7 h-7 text-green-600 group-hover:text-white transition-all duration-500" />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
+                              {item.heading}
+                            </h3>
+                            <p className="text-gray-600 leading-relaxed font-medium">{item.details}</p>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+            </div>
+
+          {/* Image Side */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative lg:h-[600px] h-[400px]"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              {data?.image ? (
-                <img
-                  src={data.image}
-                  alt="Research Lab"
-                  className="w-full h-[400px] object-cover"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-full h-[400px] bg-gradient-to-br from-green-500/20 via-blue-500/20 to-emerald-500/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-8xl mb-4">🔬</div>
-                    <p className="text-2xl font-bold text-gray-800">Research & Innovation</p>
-                    <p className="text-gray-600 mt-2">Pioneering the Future</p>
-                  </div>
-                </div>
-              )}
-              {/* Decorative Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent" />
-            </div>
-
-            {/* Floating Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 border-4 border-green-100">
-              <p className="text-4xl font-bold text-green-600">R&D</p>
-              <p className="text-sm text-gray-600">Innovation Lab</p>
+            <div className="absolute inset-0 bg-green-600 rounded-[3rem] rotate-3 opacity-10" />
+            <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
+              <img
+                src={data?.image || "/research-lab.png"}
+                alt="Research Laboratory"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              
+               {/* Overlay Content */}
+               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-8">
+                   <div className="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50">
+                       <div className="flex items-center gap-3">
+                           <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                           <span className="font-bold text-gray-800 text-sm">Sustainable Innovation</span>
+                       </div>
+                   </div>
+               </div>
             </div>
           </motion.div>
-
-          {/* Highlights Cards */}
-          <div className="space-y-6">
-            {highlights.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group flex items-start gap-4 p-6 bg-gradient-to-r from-white to-green-50 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-green-100"
-                >
-                  {/* Icon */}
-                  <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
-
-                  {/* Content */}
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-green-600 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600">{item.desc}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </section>

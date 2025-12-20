@@ -61,7 +61,7 @@ const SpasticityResearch: React.FC<ResearchProps> = ({ data }) => {
                           {/* Gradient background on hover */}
                           <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                           
-                          <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/30 group-hover:scale-110 group-hover:rotate-6">
+                          <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-500 shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/30 group-hover:scale-105 group-hover:rotate-3">
                             <Icon className="w-7 h-7 text-blue-600 group-hover:text-white transition-all duration-500" />
                           </div>
                           <div>

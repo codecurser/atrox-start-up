@@ -57,7 +57,7 @@ const SpasticityInnovation: React.FC<InnovationProps> = ({ data }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.12)] hover:shadow-[0_25px_60px_rgba(59,130,246,0.35)] transition-all duration-500 border-2 border-gray-100 hover:border-blue-200 flex flex-col h-full hover:-translate-y-2"
+                className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.12)] hover:shadow-[0_25px_60px_rgba(59,130,246,0.35)] transition-all duration-500 border-2 border-gray-100 hover:border-blue-200 flex flex-col h-full hover:-translate-y-1"
               >
                 {/* Image Area */}
                 <div className="relative h-72 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -122,8 +122,8 @@ const SpasticityInnovation: React.FC<InnovationProps> = ({ data }) => {
               {data.applications.map((app, index) => (
                 <motion.div
                   key={index}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                   className="px-8 py-4 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white font-medium hover:bg-white hover:text-blue-900 transition-all cursor-default shadow-lg"
                 >
                   {app}
