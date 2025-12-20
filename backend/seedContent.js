@@ -68,7 +68,7 @@ const seedData = [
             "Sustainability and regulatory bodies",
             "Hospitals",
           ],
-          image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg",
+          image: "https://images.pexels.com/photos/7580751/pexels-photo-7580751.jpeg",
         },
         investment: {
           title: "Investment",
@@ -224,6 +224,7 @@ const seedData = [
         title: "Research & Development",
         summary:
           "Exploring bio-based polymers, advanced fiber spinning, and smart fabric integrations for next-generation sustainable textiles.",
+        image: "/research-lab-team.png",
       },
       press: {
         title: "Press & Media",
@@ -305,6 +306,7 @@ const seedData = [
           { heading: "Clinical Studies", details: "Ongoing research in collaboration with leading healthcare institutions." },
           { heading: "Technology Innovation", details: "Continuous development of next-generation sensing and support systems." },
         ],
+        image: "/research-lab-team.png",
       },
       press: {
         title: "Press & Media",
@@ -313,7 +315,6 @@ const seedData = [
           { headline: "Technology features", link: "#" },
           { headline: "Innovation awards", link: "#" },
           { headline: "Scientific publications", link: "#" },
-          { headline: "Product launches", link: "#" },
         ],
       },
       footer: {

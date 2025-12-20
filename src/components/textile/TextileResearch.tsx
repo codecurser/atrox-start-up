@@ -92,16 +92,6 @@ const TextileResearch: React.FC<ResearchProps> = ({ data }) => {
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              
-               {/* Overlay Content */}
-               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-8">
-                   <div className="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50">
-                       <div className="flex items-center gap-3">
-                           <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                           <span className="font-bold text-gray-800 text-sm">Sustainable Innovation</span>
-                       </div>
-                   </div>
-               </div>
             </div>
           </motion.div>
         </div>
