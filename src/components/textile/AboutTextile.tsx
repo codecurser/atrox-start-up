@@ -37,7 +37,7 @@ const AboutTextile: React.FC<AboutProps> = ({ data }) => {
             <div className="space-y-6">
               {data?.vision && (
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center text-green-600">
                     <Eye size={24} />
                   </div>
                   <div>
@@ -48,7 +48,7 @@ const AboutTextile: React.FC<AboutProps> = ({ data }) => {
               )}
               {data?.mission && (
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600">
                     <Target size={24} />
                   </div>
                   <div>

@@ -22,7 +22,7 @@ const seedData = [
         description:
           "Ataryo Private Limited is a next-generation smart textile innovation company developing solutions that enhance human mobility, safety, and overall well-being.",
         backgroundImage:
-          "/banner-home.png",
+          "/home-hero-bg.jpg",
         ctaText1: "Explore Our Solutions",
         ctaText2: "Become Partner",
       },
@@ -32,7 +32,7 @@ const seedData = [
         mission: "To engineer intelligent, sustainable, and high-performance textile technologies that create a measurable positive impact on people and the planet.",
         statement:
           "We believe textiles should do more than serve a function — they should enhance life. Every innovation at Ataryo is driven by empathy, research, and the pursuit of meaningful transformation.",
-        image: "https://images.pexels.com/photos/31321061/pexels-photo-31321061.jpeg",
+        image: "/about-us.jpg",
       },
       coreValues: {
         title: "Core Values",
@@ -68,7 +68,7 @@ const seedData = [
             "Sustainability and regulatory bodies",
             "Hospitals",
           ],
-          image: "https://images.pexels.com/photos/7580751/pexels-photo-7580751.jpeg",
+          image: "https://images.pexels.com/photos/3184649/pexels-photo-3184649.jpeg",
         },
         investment: {
           title: "Investment",
@@ -79,7 +79,7 @@ const seedData = [
             "Sustainable antimicrobial fibers",
             "High-growth industrial textile applications",
           ],
-          image: "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
+          image: "https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg",
         },
       },
       team: {
@@ -148,7 +148,7 @@ const seedData = [
         mission: "To create sustainable, skin-safe, and high-performance antibacterial fabrics and fibers that protect users across healthcare, hospitality, industry, and everyday environments.",
         text:
           "Our antibacterial sustainable textiles feature built-in antimicrobial technology, sustainable & eco-friendly fiber development, long-lasting bacterial resistance, durable washable performance, comfortable breathable texture, and non-toxic skin-safe treatments.",
-        image: "https://images.pexels.com/photos/26956871/pexels-photo-26956871.jpeg?auto=compress&cs=tinysrgb&w=800",
+        image: "/sustainex-about.jpg",
       },
       products: {
         title: "Product & Application",
@@ -276,8 +276,8 @@ const seedData = [
         description: "Our smart adaptive wearables incorporate advanced technology to support movement and mobility.",
         items: [
           { name: "Smart Rehabilitation Fabrics", description: "Advanced sensing technology integrated into fabric with real-time muscle and movement monitoring.", image: "/modeneu-tech.jpg" },
-          { name: "Assistive Technology Devices", description: "Intelligent wearables enhancing mobility and muscle control through adaptive compression and support.", image: "https://images.pexels.com/photos/8436624/pexels-photo-8436624.jpeg" },
-          { name: "Data-Driven Insights", description: "Real-time mobility analytics and patient feedback for personalized therapy and rehabilitation.", image: "/modeneu-lifestyle.jpg" },
+          { name: "Assistive Technology Devices", description: "Intelligent wearables enhancing mobility and muscle control through adaptive compression and support.", image: "https://images.pexels.com/photos/7688763/pexels-photo-7688763.jpeg" },
+          { name: "Data-Driven Insights", description: "Real-time mobility analytics and patient feedback for personalized therapy and rehabilitation.", image: "https://images.pexels.com/photos/5816299/pexels-photo-5816299.jpeg" },
         ],
         applications: [
           "Neuromuscular disorders",

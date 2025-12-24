@@ -36,7 +36,12 @@ const TextilePage: React.FC = () => {
     <div className="bg-white text-gray-900 overflow-x-hidden">
       <TextileNavbar data={textile.navbar} />
       <TextileHero data={textile.hero} />
-      <AboutTextile data={textile.about} />
+      <AboutTextile 
+        data={{
+          ...textile.about,
+          image: "/sustainex-about.jpg"
+        }} 
+      />
       <Products data={textile.products} />
       <Sustainability data={textile.sustainability} />
       <Research data={textile.research} />

@@ -86,19 +86,43 @@ const HomePage: React.FC = () => {
       
       <HomeNavbar data={home.navbar} />
       
-      <HomeHero data={home.hero} />
+      <HomeHero 
+        data={{
+          ...home.hero,
+          backgroundImage: "/home-hero-bg.jpg"
+        }} 
+      />
       
       <SolutionsSlider />
       
-      <HomeAbout data={home.about} />
+      <HomeAbout 
+        data={{
+          ...home.about,
+          image: "/about-us.jpg"
+        }} 
+      />
       
       <HomeCoreValues data={home.coreValues} />
       
       <WhyWeExist data={home.whyWeExist} />
       
-      {partnerships && <HomePartnership data={partnerships} />}
+      {partnerships && (
+        <HomePartnership 
+          data={{
+            ...partnerships,
+            image: "https://images.pexels.com/photos/3184649/pexels-photo-3184649.jpeg"
+          }} 
+        />
+      )}
       
-      {investment && <HomeInvestment data={investment} />}
+      {investment && (
+        <HomeInvestment 
+          data={{
+            ...investment,
+            image: "https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg"
+          }} 
+        />
+      )}
       
       <CareersSection />
       

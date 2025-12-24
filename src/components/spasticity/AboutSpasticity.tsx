@@ -40,14 +40,14 @@ const AboutSpasticity: React.FC<AboutProps> = ({ data }) => {
             {/* Key Points */}
             <div className="space-y-6">
               {data?.vision && (
-                <div className="group relative flex gap-5 p-6 bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_50px_rgb(147,51,234,0.3)] transition-all duration-500 overflow-hidden">
+                <div className="group relative flex gap-5 p-6 bg-white/70 backdrop-blur-xl rounded-3xl border-2 border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_20px_50px_rgb(59,130,246,0.3)] transition-all duration-500 overflow-hidden">
                   {/* Gradient border effect */}
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl" />
-                  <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-[0_10px_25px_rgba(147,51,234,0.4)] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl" />
+                  <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-[0_10px_25px_rgba(59,130,246,0.4)] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <Eye size={28} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">Our Vision</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">Our Vision</h3>
                     <p className="text-gray-600 leading-relaxed font-medium">{data.vision}</p>
                   </div>
                 </div>

@@ -37,7 +37,20 @@ const SpasticityPage: React.FC = () => {
       <SpasticityNavbar data={spasticity.navbar} />
       <SpasticityHero data={spasticity.hero} />
       <AboutSpasticity data={spasticity.about} />
-      <SpasticityInnovation data={spasticity.innovation} />
+      <SpasticityInnovation 
+        data={{
+          ...spasticity.innovation,
+          items: spasticity.innovation?.items?.map((item: any) => {
+            if (item.name === "Assistive Technology Devices") {
+              return { ...item, image: "https://images.pexels.com/photos/7688763/pexels-photo-7688763.jpeg" };
+            }
+            if (item.name === "Data-Driven Insights") {
+              return { ...item, image: "https://images.pexels.com/photos/5816299/pexels-photo-5816299.jpeg" };
+            }
+            return item;
+          })
+        }} 
+      />
       <SpasticityWhoHelps data={spasticity.whoItHelps} />
       <SpasticityResearch data={spasticity.research} />
       <SpasticityPress data={spasticity.press} />
