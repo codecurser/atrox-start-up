@@ -102,35 +102,57 @@ const SpasticityInnovation: React.FC<InnovationProps> = ({ data }) => {
           </div>
         )}
 
-        {/* Applications Section */}
         {data?.applications && data.applications.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-[2.5rem] bg-gradient-to-br from-gray-900 to-blue-900 p-12 text-center shadow-2xl relative overflow-hidden"
-          >
-             {/* Abstract Shapes */}
-             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
-             <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
+          <div className="mt-32 overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h3 className="text-3xl font-bold text-gray-900 relative z-10 inline-block">
+                Key Applications
+                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50" />
+              </h3>
+            </motion.div>
 
-            <h3 className="text-3xl font-bold text-white mb-10 relative z-10">
-              Key Applications
-            </h3>
-            <div className="flex flex-wrap justify-center gap-4 relative z-10">
-              {data.applications.map((app, index) => (
+            <div className="relative w-full">
+               {/* Gradient Masks for Fade Effect */}
+              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+
+              <div className="flex overflow-hidden">
                 <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="px-8 py-4 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white font-medium hover:bg-white hover:text-blue-900 transition-all cursor-default shadow-lg"
+                  className="flex gap-6 flex-nowrap"
+                  animate={{ x: "-50%" }}
+                  transition={{
+                    duration: 30,
+                    ease: "linear",
+                    repeat: Infinity,
+                  }}
                 >
-                  {app}
+                  {[...data.applications, ...data.applications, ...data.applications].map((app, index) => (
+                    <div
+                      key={index}
+                      className="group relative h-40 w-64 flex-shrink-0 flex flex-col justify-center items-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.2)] hover:border-blue-100 transition-all duration-300"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-50/0 group-hover:from-blue-50/50 group-hover:to-indigo-50/30 rounded-2xl transition-all duration-500" />
+                      
+                      {/* Decorative Icon */}
+                      <div className="mb-4 p-3 bg-blue-50 rounded-full group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
+                        <Sparkles className="w-5 h-5 text-blue-600/70 group-hover:text-blue-600 transition-colors" />
+                      </div>
+
+                      <span className="text-lg font-bold text-gray-700 text-center group-hover:text-blue-800 transition-colors relative z-10">
+                        {app}
+                      </span>
+                    </div>
+                  ))}
                 </motion.div>
-              ))}
+              </div>
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
     </section>
